@@ -511,7 +511,7 @@
 														<h3 style="text-align: left;">We help online <b>businesses</b>
 															<br />10X their <br class="vc_visible-xs" /><span
 																class="rei-typed-multi"
-																style="text-decoration: underline;">earnings|income|roi</span>
+																style="text-decoration: underline; color: #ffffff !important; opacity: 1 !important; visibility: visible !important; display: inline-block !important; position: relative !important; z-index: 9999 !important; text-decoration: underline !important; font-size: inherit !important; font-weight: bold !important; text-shadow: none !important;">earnings|income|roi</span>
 														</h3>
 														<p>&nbsp;</p>
 
@@ -2598,6 +2598,80 @@
 		</div>
 
 	</div>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			console.log("--- Typewriter Script Starting ---");
+
+			// 1. Find all elements that need typing
+			var elements = document.querySelectorAll(".rei-typed-multi");
+
+			if (elements.length === 0) {
+				// Fallback: The class might be different in your HTML based on the dump
+				// Let's try finding the specific span by the content we know is there
+				var allSpans = document.querySelectorAll("span");
+				allSpans.forEach(function (span) {
+					if (span.innerText.includes("earnings|income|roi")) {
+						span.classList.add("rei-typed-multi"); // Add the class so our script catches it
+						elements = document.querySelectorAll(".rei-typed-multi"); // Refresh list
+					}
+				});
+			}
+
+			// 2. Initialize the Typewriter
+			elements.forEach(function (el) {
+				var rawText = el.innerText;
+				if (rawText.includes("|")) {
+					var words = rawText.split("|");
+					var waitTime = 2000; // Time to wait before deleting
+					var typeSpeed = 100; // Typing speed
+					var deleteSpeed = 50; // Deleting speed
+
+					// Clear the text initially
+					el.innerText = "";
+
+					// Start the loop
+					startTyping(el, words, 0);
+				}
+			});
+
+			function startTyping(element, words, index) {
+				var currentWord = words[index];
+				var charIndex = 0;
+
+				// TYPE IT OUT
+				var typingInterval = setInterval(function () {
+					element.innerText = currentWord.substring(0, charIndex + 1);
+					charIndex++;
+
+					if (charIndex === currentWord.length) {
+						clearInterval(typingInterval);
+						// WAIT, THEN DELETE
+						setTimeout(function () {
+							deleteText(element, words, index);
+						}, 2000);
+					}
+				}, 100);
+			}
+
+			function deleteText(element, words, index) {
+				var currentWord = words[index];
+				var charIndex = currentWord.length;
+
+				// DELETE IT
+				var deletingInterval = setInterval(function () {
+					element.innerText = currentWord.substring(0, charIndex - 1);
+					charIndex--;
+
+					if (charIndex === 0) {
+						clearInterval(deletingInterval);
+						// MOVE TO NEXT WORD
+						var nextIndex = (index + 1) % words.length; // Loop back to 0
+						startTyping(element, words, nextIndex);
+					}
+				}, 50);
+			}
+		});
+	</script>
 	<script
 		type='text/javascript'>window.pum_popups = { "pum-1386": { "disable_on_mobile": false, "disable_on_tablet": false, "custom_height_auto": false, "scrollable_content": false, "position_from_trigger": false, "position_fixed": false, "overlay_disabled": false, "stackable": false, "disable_reposition": false, "close_on_overlay_click": false, "close_on_esc_press": false, "close_on_f4_press": false, "disable_form_reopen": false, "disable_accessibility": false, "cookies": [{ "event": "on_popup_open", "settings": { "name": "pum-1386", "key": "", "session": false, "time": "1 month", "path": "1" } }], "theme_id": "7", "size": "medium", "responsive_min_width": "0%", "responsive_max_width": "100%", "custom_width": "640px", "custom_height": "380px", "animation_type": "fade", "animation_speed": "350", "animation_origin": "center top", "location": "center top", "position_top": "100", "position_bottom": "0", "position_left": "0", "position_right": "0", "zindex": "1999999999", "close_button_delay": "0", "triggers": [], "id": "1386", "slug": "reiterate-transition" }, "pum-1128": { "disable_on_mobile": false, "disable_on_tablet": false, "custom_height_auto": false, "scrollable_content": false, "position_from_trigger": false, "position_fixed": false, "overlay_disabled": false, "stackable": false, "disable_reposition": false, "close_on_overlay_click": true, "close_on_esc_press": true, "close_on_f4_press": false, "disable_form_reopen": false, "disable_accessibility": false, "triggers": [{ "type": "click_open", "settings": { "cookie_name": "", "extra_selectors": "#rei-video-popup-trigger" } }, { "type": "click_open", "settings": { "extra_selectors": "#watch-free-tutorial" } }], "theme_id": "7", "size": "medium", "responsive_min_width": "0%", "responsive_max_width": "100%", "custom_width": "640px", "custom_height": "380px", "animation_type": "fade", "animation_speed": "350", "animation_origin": "center top", "location": "center top", "position_top": "100", "position_bottom": "0", "position_left": "0", "position_right": "0", "zindex": "1999999999", "close_button_delay": "0", "cookies": [], "id": "1128", "slug": "magnet-lead" }, "pum-176": { "disable_on_mobile": false, "disable_on_tablet": false, "custom_height_auto": false, "scrollable_content": false, "position_from_trigger": false, "position_fixed": true, "overlay_disabled": false, "stackable": false, "disable_reposition": false, "close_on_overlay_click": true, "close_on_esc_press": true, "close_on_f4_press": false, "disable_form_reopen": false, "disable_accessibility": false, "theme_id": "7", "size": "medium", "responsive_min_width_unit": "px", "responsive_max_width": "600px", "custom_width": "640px", "custom_height": "380px", "location": "center ", "position_top": "100", "animation_type": "fade", "animation_speed": "350", "animation_origin": "center top", "overlay_zindex": "1999999998", "zindex": "1999999999", "close_button_delay": "0", "triggers": [{ "type": "click_open", "settings": { "extra_selectors": ".rei-become-a-client", "do_default": null, "cookie": { "name": null } } }, { "type": "click_open", "settings": { "extra_selectors": "[href*=\"#become-a-client\"]", "do_default": null, "cookie": { "name": null } } }], "id": "176", "slug": "become-a-client" } }; window.pum_vars.popups = window.pum_popups;</script>
 	<script type='text/javascript'>
@@ -2702,6 +2776,7 @@
 
 		})(grecaptcha, '6LfvsIcUAAAAAE9dZcEct_ceG6Gma9WW-g2VBnLt');
 	</script>
+
 </body>
 
 </html>
